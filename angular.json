@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "recepies-frontend": {
+    "recipes-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/recepies-frontend",
+            "outputPath": "dist/recipes-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -95,10 +95,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "recepies-frontend:build:production"
+              "browserTarget": "recipes-frontend:build:production"
             },
             "development": {
-              "browserTarget": "recepies-frontend:build:development"
+              "browserTarget": "recipes-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -106,7 +106,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "recepies-frontend:build"
+            "browserTarget": "recipes-frontend:build"
           }
         },
         "test": {
@@ -130,5 +130,5 @@
       }
     }
   },
-  "defaultProject": "recepies-frontend"
+  "defaultProject": "recipes-frontend"
 }

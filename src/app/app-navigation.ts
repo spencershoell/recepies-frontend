@@ -5,6 +5,11 @@ export const navigation = [
     icon: 'home'
   },
   {
+    text: "Recipies",
+    path: '/recipies',
+    icon: 'folder'
+  },
+  {
     text: 'Examples',
     icon: 'folder',
     items: [

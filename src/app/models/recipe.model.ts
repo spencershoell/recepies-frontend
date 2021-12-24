@@ -1,24 +1,36 @@
 import Guid from "devextreme/core/guid";
+import { RecipeCategory } from ".";
+import { Common } from "../class";
 import { Unit } from "../class/measurment-unit.class";
+import { Course } from "./course.model";
 import { IIdentifiable } from "./interfaces";
 
 export class Recipe implements IIdentifiable<string> {
     id: string;
-    rowId: number;
+    rowId?: number;
 
-    name: string;
+    name?: string;
     prepTime?: number;
-    prepTimeUnit?: Unit;
     cookTime?: number;
-    cookTimeUnit?: Unit;
-    totalTime?: number;
-    totalTimeUnit?: Unit;
-    yeild?: number;
-    yeildUnit?: Unit
+    get totalTime(): number {
+        let totalTime = 0;
+        if (Common.isNotNull(this.prepTime)) {
+            totalTime += this.prepTime!;
+        }
+        if (Common.isNotNull(this.cookTime)) {
+            totalTime += this.cookTime!;
+        }
+        return totalTime;
+    }
+    servingSize?: number;
+
+    courseId?: string;
+
+    course?: Course;
+
+    categories?: Array<RecipeCategory>;
 
     constructor() {
         this.id = new Guid().toString();
-        this.rowId = 0;
-        this.name = "";        
     }
 }

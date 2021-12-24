@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import Guid from "devextreme/core/guid";
 import { FilterDescriptor, GroupDescriptor, LoadOptions } from "devextreme/data";
 import CustomStore, { GroupItem } from "devextreme/data/custom_store";
 import { Dexie } from "dexie";
@@ -9,10 +8,11 @@ import { DexieService } from ".";
 
 @Injectable()
 export class BaseStoreService<TItem extends IIdentifiable<TKey>, TKey = any> {
+    protected table!: Dexie.Table<TItem, TKey>;
 
     store: CustomStore
 
-    constructor(private db: DexieService, private table: Dexie.Table<TItem, TKey>) {
+    constructor(private db: DexieService) {
         this.store = new CustomStore({
             key: 'id',
             byKey: async (key: TKey): Promise<TItem> => {

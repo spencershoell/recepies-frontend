@@ -2,7 +2,9 @@ import { Injectable } from "@angular/core";
 import Dexie from "dexie";
 import { Recipe } from "src/app/models";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class DexieService extends Dexie {
     recipes?: Dexie.Table<Recipe, string>;
 

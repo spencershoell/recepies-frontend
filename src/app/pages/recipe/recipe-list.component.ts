@@ -1,6 +1,8 @@
 import { CommonModule } from "@angular/common";
 import { Component, NgModule } from "@angular/core";
 import { DxDataGridModule } from "devextreme-angular";
+import DataSource from "devextreme/data/data_source";
+import { RecipeStoreService } from "src/app/stores/recipe.store";
 
 @Component({
     selector: 'app-recipe-list',
@@ -8,6 +10,12 @@ import { DxDataGridModule } from "devextreme-angular";
     styleUrls: ['./recipe-list.component.scss']
 })
 export class RecipeListComponent {
+    dataSource: DataSource;
+    constructor(recipeStoreSerivce: RecipeStoreService) {
+        this.dataSource = new DataSource({
+            store: recipeStoreSerivce.store
+        });
+    }
 }
 
 @NgModule({
@@ -15,4 +23,6 @@ export class RecipeListComponent {
     declarations: [RecipeListComponent],
     exports: [RecipeListComponent]
 })
-export class RecipeListModule { }
+export class RecipeListModule {
+
+}

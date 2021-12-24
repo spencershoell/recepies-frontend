@@ -15,10 +15,10 @@ export class Recipe implements IIdentifiable<string> {
     get totalTime(): number {
         let totalTime = 0;
         if (Common.isNotNull(this.prepTime)) {
-            totalTime += this.prepTime!;
+            totalTime += +this.prepTime!;
         }
         if (Common.isNotNull(this.cookTime)) {
-            totalTime += this.cookTime!;
+            totalTime += +this.cookTime!;
         }
         return totalTime;
     }

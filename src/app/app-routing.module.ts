@@ -7,21 +7,12 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import { RecipeListComponent, RecipeListModule } from './pages/recipe';
+import { CourseListComponent, CourseListModule } from './pages/course';
 
 const routes: Routes = [
   {
-    path: 'tasks',
-    component: TasksComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
     canActivate: [AuthGuardService]
   },
   {
@@ -45,17 +36,21 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
+    path: 'courses',
+    component: CourseListComponent
+  },
+  {
     path: 'recipies',
     component: RecipeListComponent
   },
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: 'recipies'
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule, RecipeListModule],
+  imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule, CourseListModule, RecipeListModule],
   providers: [AuthGuardService],
   exports: [RouterModule],
   declarations: [HomeComponent, ProfileComponent, TasksComponent]

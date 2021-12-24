@@ -7,6 +7,7 @@ export class Course implements IIdentifiable<string> {
     rowId?: number;
 
     name?: string;
+    displayOrder?: number;
 
     recipies?: Array<Recipe>;
 

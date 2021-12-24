@@ -1,0 +1,11 @@
+<h2 class="content-block">Courses</h2>
+
+<dx-data-grid class="dx-card wide-card" [dataSource]="dataSource" [showBorders]="false" [focusedRowEnabled]="true"
+    [focusedRowIndex]="0" [columnAutoWidth]="true" [columnHidingEnabled]="true">
+    <dxo-editing mode="batch" [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true">
+    </dxo-editing>
+    <dxo-paging [pageSize]="20"></dxo-paging>
+    <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
+    <dxi-column dataField="name" caption="Name"></dxi-column>
+    <dxi-column dataField="displayOrder" caption="Display Order"></dxi-column>
+</dx-data-grid>

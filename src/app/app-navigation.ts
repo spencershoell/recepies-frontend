@@ -1,12 +1,14 @@
+import { faOven } from '@fortawesome/pro-solid-svg-icons';
+
 export const navigation = [
   {
-    text: "Recipies",
+    text: 'Recipies',
     path: '/recipies',
-    icon: 'folder'
+    icon: 'fad fa-oven '
   },
   {
     text: 'Settings',
-    icon: 'folder',
+    icon: 'fad fa-cog fa-swap-opacity',
     items: [
       {
         text: 'Courses',

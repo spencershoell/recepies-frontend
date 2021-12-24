@@ -50,6 +50,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@fortawesome/fontawesome-pro/css/all.min.css",
               "node_modules/devextreme/dist/css/dx.common.css",
               "src/themes/generated/theme.base.css",
               "src/themes/generated/theme.additional.css",

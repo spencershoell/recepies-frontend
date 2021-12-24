@@ -7,6 +7,7 @@ import { FooterModule, ResetPasswordFormModule, CreateAccountFormModule, ChangeP
 import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import { UnauthenticatedContentModule } from './unauthenticated-content';
 import { AppRoutingModule } from './app-routing.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
     SideNavOuterToolbarModule,
     SideNavInnerToolbarModule,
     SingleCardModule,
+    FontAwesomeModule,
     FooterModule,
     ResetPasswordFormModule,
     CreateAccountFormModule,

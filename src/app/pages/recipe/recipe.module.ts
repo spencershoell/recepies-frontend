@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
-import { RecipeListComponent, RecipeListModule } from ".";
+import { RecipeDetailComponent, RecipeDetailModule, RecipeListComponent, RecipeListModule } from ".";
 
 @NgModule({
-    imports: [RecipeListModule],
+    imports: [RecipeListModule, RecipeDetailModule],
     declarations: [],
-    exports: [RecipeListComponent]
+    exports: [RecipeListComponent, RecipeDetailComponent]
 })
 export class RecipeModule { }

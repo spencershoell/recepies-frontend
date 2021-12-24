@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, NgModule } from "@angular/core";
-import DevExpress from "devextreme";
+import { RouterModule } from "@angular/router";
 import { DxDataGridModule } from "devextreme-angular";
 import CustomStore from "devextreme/data/custom_store";
 import DataSource from "devextreme/data/data_source";
@@ -27,10 +27,8 @@ export class RecipeListComponent {
 }
 
 @NgModule({
-    imports: [CommonModule, DxDataGridModule],
+    imports: [CommonModule, DxDataGridModule, RouterModule],
     declarations: [RecipeListComponent],
     exports: [RecipeListComponent]
 })
-export class RecipeListModule {
-
-}
+export class RecipeListModule {}

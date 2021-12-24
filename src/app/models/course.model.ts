@@ -9,7 +9,7 @@ export class Course implements IIdentifiable<string> {
     name?: string;
     displayOrder?: number;
 
-    recipies?: Array<Recipe>;
+    recipes?: Array<Recipe>;
 
     constructor() {
         this.id = new Guid().toString();

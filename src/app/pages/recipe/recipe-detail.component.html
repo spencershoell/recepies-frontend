@@ -1,7 +1,7 @@
 <h2 class="content-block">Recipes</h2>
 
-<dx-data-grid class="dx-card wide-card" [dataSource]="dataSource" [showBorders]="false" [focusedRowEnabled]="false"
-    [columnAutoWidth]="true" [columnHidingEnabled]="true">
+<dx-data-grid class="dx-card wide-card" [dataSource]="dataSource" [showBorders]="false" [focusedRowEnabled]="true"
+    [focusedRowIndex]="0" [columnAutoWidth]="true" [columnHidingEnabled]="true">
     <dxo-editing mode="popup" [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true">
         <dxo-popup title="Recipe Info" [showTitle]="true">
         </dxo-popup>
@@ -21,11 +21,7 @@
     </dxo-editing>
     <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
-    <dxi-column dataField="name" caption="Name" cellTemplate="recipeNameTemplate">
-        <div *dxTemplate="let item of 'recipeNameTemplate'">
-            <a *ngIf="item.data.name" [routerLink]="['/recipes', item.data.id]">{{item.value}}</a>
-        </div>
-    </dxi-column>
+    <dxi-column dataField="name" caption="Name"></dxi-column>
     <dxi-column dataField="courseId" caption="Course">
         <dxo-lookup [dataSource]="courses" displayExpr="name" valueExpr="id"></dxo-lookup>
         <dxi-validation-rule type="required"></dxi-validation-rule>

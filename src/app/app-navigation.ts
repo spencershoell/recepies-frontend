@@ -2,8 +2,8 @@ import { faOven } from '@fortawesome/pro-solid-svg-icons';
 
 export const navigation = [
   {
-    text: 'Recipies',
-    path: '/recipies',
+    text: 'Recipes',
+    path: '/recipes',
     icon: 'fad fa-oven '
   },
   {

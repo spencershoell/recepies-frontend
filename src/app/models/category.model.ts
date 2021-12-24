@@ -8,7 +8,7 @@ export class Category implements IIdentifiable<string>{
 
     name?: string;
 
-    recipies?: Array<RecipeCategory>;
+    recipes?: Array<RecipeCategory>;
 
     constructor() {
         this.id = new Guid().toString();

@@ -6,7 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
-import { RecipeListComponent, RecipeListModule } from './pages/recipe';
+import { RecipeDetailComponent, RecipeListComponent, RecipeListModule } from './pages/recipe';
 import { CourseListComponent, CourseListModule } from './pages/course';
 
 const routes: Routes = [
@@ -40,12 +40,16 @@ const routes: Routes = [
     component: CourseListComponent
   },
   {
-    path: 'recipies',
+    path: 'recipes',
     component: RecipeListComponent
   },
   {
+    path: 'recipes/:recipeId',
+    component: RecipeDetailComponent
+  },
+  {
     path: '**',
-    redirectTo: 'recipies'
+    redirectTo: 'recipes'
   }
 ];
 

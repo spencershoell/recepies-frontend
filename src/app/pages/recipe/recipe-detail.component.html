@@ -1,33 +1,56 @@
-<h2 class="content-block">Recipes</h2>
+<h2 class="content-block">{{recipe?.name}}</h2>
 
-<dx-data-grid class="dx-card wide-card" [dataSource]="dataSource" [showBorders]="false" [focusedRowEnabled]="true"
-    [focusedRowIndex]="0" [columnAutoWidth]="true" [columnHidingEnabled]="true">
-    <dxo-editing mode="popup" [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true">
-        <dxo-popup title="Recipe Info" [showTitle]="true">
-        </dxo-popup>
-        <dxo-form>
-            <dxi-item itemType="group" caption="Basic Info" [colCount]="2" [colSpan]="2">
-                <dxi-item dataField="name"></dxi-item>
-                <dxi-item dataField="courseId"></dxi-item>
+<dx-tab-panel #tabPanel [selectedIndex]="0" [loop]="false" [animationEnabled]="false" [swipeEnabled]="false"
+    [items]="tabItems">
+    <!-- Details -->
+    <div *dxTemplate="let template of 'detailsTemplate'">
+        <div class="buttons">
+            <dx-button *ngIf="!detailEditing" text="Edit" icon="fad fa-edit" type="success" (click)="detailEdit()">
+            </dx-button>
+            <dx-button *ngIf="detailEditing" text="Cancel" icon="fad fa-ban" type="normal" (click)="detailCancel()">
+            </dx-button>
+            <dx-button *ngIf="detailEditing" text="Save" icon="fad fa-save" type="success" (click)="detailSave()">
+            </dx-button>
+        </div>
+        <dx-form [formData]="recipe" colCount="auto" [colCountByScreen]="{lg: 4, md: 4, sm: 2, xs: 1}">
+            <dxi-item itemType="group" caption="Basic Info">
+                <dxi-item dataField="name" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
+                <dxi-item dataField="courseId" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
             </dxi-item>
-            <dxi-item itemType="group" caption="Timing" [colCount]="2" [colSpan]="2">
-                <dxi-item dataField="prepTime"></dxi-item>
-                <dxi-item dataField="cookTime"></dxi-item>
+            <dxi-item itemType="group" caption="Timing">
+                <dxi-item dataField="prepTime" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
+                <dxi-item dataField="cookTime" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
             </dxi-item>
-            <dxi-item itemType="group" caption="Yield" [colCount]="2" [colSpan]="2">
-                <dxi-item dataField="servingSize"></dxi-item>
+            <dxi-item itemType="group" caption="Yield">
+                <dxi-item dataField="servingSize" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
             </dxi-item>
-        </dxo-form>
-    </dxo-editing>
-    <dxo-paging [pageSize]="10"></dxo-paging>
-    <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
-    <dxi-column dataField="name" caption="Name"></dxi-column>
-    <dxi-column dataField="courseId" caption="Course">
-        <dxo-lookup [dataSource]="courses" displayExpr="name" valueExpr="id"></dxo-lookup>
-        <dxi-validation-rule type="required"></dxi-validation-rule>
-    </dxi-column>
-    <dxi-column dataField="prepTime" caption="Prep Time"></dxi-column>
-    <dxi-column dataField="cookTime" caption="Cook Time"></dxi-column>
-    <dxi-column dataField="totalTime" caption="Total Time"></dxi-column>
-    <dxi-column dataField="servingSize" caption="Servings"></dxi-column>
-</dx-data-grid>
+        </dx-form>
+    </div>
+    <!-- Ingredients -->
+    <div *dxTemplate="let template of 'ingredientsTemplate'">
+        <div class="buttons">
+            <dx-button *ngIf="!detailEditing" text="Edit" icon="fad fa-edit" type="success" (click)="detailEdit()">
+            </dx-button>
+            <dx-button *ngIf="detailEditing" text="Cancel" icon="fad fa-ban" type="normal" (click)="detailCancel()">
+            </dx-button>
+            <dx-button *ngIf="detailEditing" text="Save" icon="fad fa-save" type="success" (click)="detailSave()">
+            </dx-button>
+        </div>
+        <dx-form [formData]="recipe" colCount="auto" [colCountByScreen]="{lg: 4, md: 4, sm: 2, xs: 1}">
+            <dxi-item itemType="group" caption="Basic Info">
+                <dxi-item dataField="name" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
+                <dxi-item dataField="courseId" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
+            </dxi-item>
+            <dxi-item itemType="group" caption="Timing">
+                <dxi-item dataField="prepTime" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
+                <dxi-item dataField="cookTime" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
+            </dxi-item>
+            <dxi-item itemType="group" caption="Yield">
+                <dxi-item dataField="servingSize" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
+            </dxi-item>
+        </dx-form>
+    </div>
+    <!-- Instructions -->
+    <div *dxTemplate="let template of 'instructionsTemplate'">
+    </div>
+</dx-tab-panel>

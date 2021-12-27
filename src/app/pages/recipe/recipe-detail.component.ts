@@ -23,6 +23,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     private _recipeId!: string;
 
     private _detailEditing: boolean = false;
+    private _ingredientsEditing: boolean = false;
 
     dataSource: DataSource;
     courses: CustomStore;
@@ -48,6 +49,10 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
 
     get detailEditing(): boolean {
         return this._detailEditing;
+    }
+
+    get ingredientsEditing(): boolean {
+        return this._ingredientsEditing;
     }
 
     constructor(
@@ -82,6 +87,20 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     }
 
     async detailSave() {
+        await this.recipeStoreSerivce.update(this.recipe.id, this.recipe);
+        this._detailEditing = false;
+    }
+
+    async ingredientsCancel() {
+        await this.loadRecipe();
+        this._ingredientsEditing = false;
+    }
+
+    ingredientsEdit() {
+        this._ingredientsEditing = true;
+    }
+
+    async ingredientsSave() {
         await this.recipeStoreSerivce.update(this.recipe.id, this.recipe);
         this._detailEditing = false;
     }

@@ -29,24 +29,20 @@
     <!-- Ingredients -->
     <div *dxTemplate="let template of 'ingredientsTemplate'">
         <div class="buttons">
-            <dx-button *ngIf="!detailEditing" text="Edit" icon="fad fa-edit" type="success" (click)="detailEdit()">
+            <dx-button *ngIf="!ingredientsEditing" text="Edit" icon="fad fa-edit" type="success"
+                (click)="ingredientsEdit()">
             </dx-button>
-            <dx-button *ngIf="detailEditing" text="Cancel" icon="fad fa-ban" type="normal" (click)="detailCancel()">
+            <dx-button *ngIf="ingredientsEditing" text="Cancel" icon="fad fa-ban" type="normal"
+                (click)="ingredientsCancel()">
             </dx-button>
-            <dx-button *ngIf="detailEditing" text="Save" icon="fad fa-save" type="success" (click)="detailSave()">
+            <dx-button *ngIf="ingredientsEditing" text="Save" icon="fad fa-save" type="success"
+                (click)="ingredientsSave()">
             </dx-button>
         </div>
         <dx-form [formData]="recipe" colCount="auto" [colCountByScreen]="{lg: 4, md: 4, sm: 2, xs: 1}">
-            <dxi-item itemType="group" caption="Basic Info">
-                <dxi-item dataField="name" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
-                <dxi-item dataField="courseId" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
-            </dxi-item>
-            <dxi-item itemType="group" caption="Timing">
-                <dxi-item dataField="prepTime" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
-                <dxi-item dataField="cookTime" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
-            </dxi-item>
-            <dxi-item itemType="group" caption="Yield">
-                <dxi-item dataField="servingSize" [editorOptions]="{readOnly: !detailEditing}"></dxi-item>
+            <dxi-item itemType="group" caption="Ingredients">
+                <dxi-item *ngFor="let ingredient of recipe.ingredients" dataField="name"
+                    [editorOptions]="{readOnly: !ingredientsEditing}"></dxi-item>
             </dxi-item>
         </dx-form>
     </div>
